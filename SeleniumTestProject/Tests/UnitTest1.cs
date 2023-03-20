@@ -5,7 +5,7 @@ using FluentAssertions;
 using System;
 using Xunit.Abstractions;
 
-namespace SeleniumTestProject
+namespace SeleniumTestProject.Tests
 {
     public class UnitTest1
     {
@@ -17,7 +17,7 @@ namespace SeleniumTestProject
 
         public UnitTest1(ITestOutputHelper output)
         {
-            this._output = output;
+            _output = output;
         }
 
         [Fact]
