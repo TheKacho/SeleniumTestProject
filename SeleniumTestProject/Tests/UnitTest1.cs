@@ -62,5 +62,16 @@ namespace SeleniumTestProject.Tests
 
             driver.Title.Should().NotBe("Google");
         }
+
+        [Fact]
+        public void NavigatePage()
+        {
+            var driver = new ChromeDriver();
+            driver.Url = "https://www.google.com";
+            Thread.Sleep(3000);
+            driver.Dispose();
+        }
+
+        
     }
 }
