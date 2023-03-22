@@ -9,6 +9,8 @@ using static SeleniumTestProject.Utilities.Browser;
 
 namespace SeleniumTestProject.Tests
 {
+    //** may modify or delete this test **
+
     //public class MultiBrowseTest
     //{
     //    String test_url = "https://lambdatest.github.io/sample-todo-app/";

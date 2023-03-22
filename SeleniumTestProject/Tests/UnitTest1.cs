@@ -28,6 +28,7 @@ namespace SeleniumTestProject.Tests
             driver.Title.Should().Be(homePage.Title);
         }
 
+        // ** May modify or delete **
         [Fact]
         public void GoogleConfirm()
         {
@@ -47,6 +48,8 @@ namespace SeleniumTestProject.Tests
 
             driver.Quit();
         }
+
+        // ** May modify or delete **
 
         [Fact]
         public void GoogleGamba()

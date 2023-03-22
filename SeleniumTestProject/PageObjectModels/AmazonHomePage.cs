@@ -7,6 +7,7 @@ using System.Threading.Tasks;
 
 namespace SeleniumTestProject.PageObjectModels
 {
+    //may delete
     public class AmazonHomePage
     {
         private readonly IWebDriver _driver;

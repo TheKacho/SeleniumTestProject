@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace SeleniumTestProject.PageObjectModels
 {
-    internal class BooksPage : NewTab
-    {
-        internal string Url = "https://demoqa.com/books";
+    //internal class BooksPage : NewTab
+    //{
+    //    internal string Url = "https://demoqa.com/books";
 
-        string gitPocketGuideLinkId = "see-book-Git Pocket Guide";
+    //    string gitPocketGuideLinkId = "see-book-Git Pocket Guide";
 
-        internal By GitPocketGuideLink { get => By.Id(gitPocketGuideLinkId);}
-    }
+    //    internal By GitPocketGuideLink { get => By.Id(gitPocketGuideLinkId);}
+    //}
 }
