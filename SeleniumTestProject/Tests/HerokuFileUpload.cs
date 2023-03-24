@@ -19,6 +19,7 @@ namespace SeleniumTestProject.Tests
 
         }
 
+        //NOTE: The pants.txt file needs to be on the Desktop for this test to work!
         [Fact]
         public void UploadFile()
         {
@@ -29,20 +30,28 @@ namespace SeleniumTestProject.Tests
             IWebElement fileInput = driver.FindElement(By.Id("file-upload"));
 
             // Set the path to the file you want to upload
-            string filePath = Path.GetFullPath("pants.txt");
+            string filePath = Path.Combine("Desktop", "pants.txt");
+            string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
+            string fileName = "pants.txt";
+            string absoluteFilePath = Path.Combine(desktopPath, fileName);
+            
             //NOTE: The pants.txt file will be within
-            //the "..\SeleniumTestProject\SeleniumTestProject\bin\Debug\net6.0" folder!
+            
 
             // Send the file path to the file input element
-            fileInput.SendKeys(filePath);
+            fileInput = driver.FindElement(By.Id("file-upload"));
+            fileInput.SendKeys(absoluteFilePath);
+            //fileInput.SendKeys(filePath);
 
             // Find the submit button and click it
             IWebElement submitButton = driver.FindElement(By.Id("file-submit"));
             submitButton.Click();
 
             // Verify that the file was uploaded successfully
-            IWebElement successMessage = driver.FindElement(By.XPath("//h3[text()='File Uploaded!']"));
-            Assert.Equal("File Uploaded!", successMessage.Text);
+            IWebElement uploadedFile = driver.FindElement(By.Id("uploaded-files"));
+            Assert.Equal("pants.txt", uploadedFile.Text);
+            //IWebElement successMessage = driver.FindElement(By.XPath("//h3[text()='File Uploaded!']"));
+            //Assert.Equal("File Uploaded!", successMessage.Text);
         }
 
         public void Dispose()
