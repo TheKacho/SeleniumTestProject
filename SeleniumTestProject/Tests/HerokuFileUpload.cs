@@ -50,12 +50,13 @@ namespace SeleniumTestProject.Tests
             // Verify that the file was uploaded successfully
             IWebElement uploadedFile = driver.FindElement(By.Id("uploaded-files"));
             Assert.Equal("pants.txt", uploadedFile.Text);
-            //IWebElement successMessage = driver.FindElement(By.XPath("//h3[text()='File Uploaded!']"));
-            //Assert.Equal("File Uploaded!", successMessage.Text);
+            
         }
+
 
         public void Dispose()
         {
+            driver.Dispose();
             driver.Quit();
         }
     }
