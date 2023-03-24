@@ -30,6 +30,8 @@ namespace SeleniumTestProject.Tests
 
             // Set the path to the file you want to upload
             string filePath = Path.GetFullPath("pants.txt");
+            //NOTE: The pants.txt file will be within
+            //the "..\SeleniumTestProject\SeleniumTestProject\bin\Debug\net6.0" folder!
 
             // Send the file path to the file input element
             fileInput.SendKeys(filePath);
