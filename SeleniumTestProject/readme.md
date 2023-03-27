@@ -2,8 +2,10 @@
 
 #@ Pre-Requirements Prior To Testing
 - Please copy the pants.txt file from the SeleniumTestProject solution folder to the desktop in order for the file upload test to work!
-- All of the tests uses xUnit, Selenium, Selenium Web Driver(that includes the Chrome Driver), and Fluent Assertions
-- If these are not included in the solution folder, please install them from the Nuget Package Manager
+- All of the tests uses xUnit, Selenium, Selenium Web Driver(that includes the Chrome Driver), and Fluent Assertions.
+- If these are not included in the solution folder, please install them from the Nuget Package Manager.
+
+- All of the tests are within the "Tests" folder, as the Page Object Models are within the "PageObjectModels" folder.
 
 
 ## Final Project Objectives 
