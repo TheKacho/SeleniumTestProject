@@ -21,7 +21,7 @@ namespace SeleniumTestProject.Tests
 
         //NOTE: The pants.txt file needs to be on the Desktop for this test to work!
         [Fact]
-        public void UploadFile()
+        public void UploadFileFromDesktop()
         {
             // Navigate to the upload page
             driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/upload");
@@ -29,25 +29,23 @@ namespace SeleniumTestProject.Tests
             // Find the file input element
             IWebElement fileInput = driver.FindElement(By.Id("file-upload"));
 
-            // Set the path to the file you want to upload
+            // Set the path to the file you want to upload (The path to the file is on the desktop)
             string filePath = Path.Combine("Desktop", "pants.txt");
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string fileName = "pants.txt";
             string absoluteFilePath = Path.Combine(desktopPath, fileName);
-            
-            //NOTE: The pants.txt file will be within
-            
+                    
 
             // Send the file path to the file input element
             fileInput = driver.FindElement(By.Id("file-upload"));
             fileInput.SendKeys(absoluteFilePath);
             //fileInput.SendKeys(filePath);
 
-            // Find the submit button and click it
+            // Finds the submit button and click it
             IWebElement submitButton = driver.FindElement(By.Id("file-submit"));
             submitButton.Click();
 
-            // Verify that the file was uploaded successfully
+            // Verifies that the file was uploaded successfully
             IWebElement uploadedFile = driver.FindElement(By.Id("uploaded-files"));
             Assert.Equal("pants.txt", uploadedFile.Text);
             

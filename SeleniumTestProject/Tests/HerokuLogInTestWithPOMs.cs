@@ -32,20 +32,20 @@ namespace SeleniumTestProject.Tests
             // Enters an invalid username and password
             loginPage.Login("invalid", "invalid");
 
-            // Verifys that the login failed and an error message is displayed
+            // Asserts and verifys that the login failed and an error message is displayed
             Assert.True(loginPage.IsErrorMessageDisplayed());
         }
 
         [Fact]
         public void ValidLoginTest()
         {
-            // Navigate to the login page
+            // Navigates to the login page
             loginPage.NavigateTo("http://the-internet.herokuapp.com/login");
 
-            // Enter a valid username and password
+            // Enters a valid username and password
             loginPage.Login("tomsmith", "SuperSecretPassword!");
 
-            // Verify that the login succeeded and the secure area page is displayed
+            // Verifies that the login succeeded and the secure area page is displayed
             Assert.False(secureLoginAreaPage.IsSecureLoginAreaPageDisplayed());
         }
 

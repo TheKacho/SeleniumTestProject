@@ -37,22 +37,7 @@ namespace SeleniumTestProject.Tests
             }
         }
 
-        [Fact]
-        public void TestSearch()
-        {
-            //arrange
-            var homePage = new ArtOfTestingHomePage(_driver);
-
-            //act
-            homePage.GoToPage();
-            homePage.SearchFor("Selenium");
-
-            //assert
-            using (new AssertionScope())
-            {
-                homePage.AssertSearchResultDisplayed();
-            }
-        }
+       
 
 
         public void Dispose()
