@@ -6,6 +6,7 @@
 - If these are not included in the solution folder, please install them from the Nuget Package Manager.
 
 - All of the tests are within the "Tests" folder, as the Page Object Models are within the "PageObjectModels" folder.
+- In order to effectively run these tests, they must be run one test at a time to see the actual results.
 
 
 ## Final Project Objectives 
