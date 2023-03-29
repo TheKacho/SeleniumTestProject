@@ -26,12 +26,15 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void InvalidLoginTest()
         {
+            //Arrange
             // Navigates to the login page
             loginPage.NavigateTo("http://the-internet.herokuapp.com/login");
 
+            //Act
             // Enters an invalid username and password
             loginPage.Login("invalid", "invalid");
 
+            //Assert
             // Asserts and verifys that the login failed and an error message is displayed
             Assert.True(loginPage.IsErrorMessageDisplayed());
         }
@@ -39,12 +42,15 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void ValidLoginTest()
         {
+            //Arrange
             // Navigates to the login page
             loginPage.NavigateTo("http://the-internet.herokuapp.com/login");
 
+            //Act
             // Enters a valid username and password
             loginPage.Login("tomsmith", "SuperSecretPassword!");
 
+            //Assert
             // Verifies that the login succeeded and the secure area page is displayed
             Assert.False(secureLoginAreaPage.IsSecureLoginAreaPageDisplayed());
         }

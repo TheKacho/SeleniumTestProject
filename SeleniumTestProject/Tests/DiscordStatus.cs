@@ -13,12 +13,15 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void NavToStatusPage_AssertStatus()
         {
+            //Arrange
             var driver = new ChromeDriver();
             driver.Url = "https://status.discordapp.com/";
 
+            //Act
             try
             {
                 var statusField = driver.FindElement(By.CssSelector("span.status"));
+                //Assert
                 Assert.NotNull(statusField.Text);
                 Assert.Equal("all systems operational", statusField.Text.ToLower());
             }

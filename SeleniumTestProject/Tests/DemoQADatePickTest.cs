@@ -17,18 +17,16 @@ namespace SeleniumTestProject.Tests
         {
             _driver = new ChromeDriver();
         }
-        public void Dispose()
-        {
-            _driver.Dispose();
-            _driver.Quit();
-        }
+
 
         [Fact]
         public void SelectDate()
         {
+            //Arrange
             // Navigate to the Date Picker page
             _driver.Navigate().GoToUrl("https://demoqa.com/date-picker");
 
+            //Act
             // Find and click the date input field
             IWebElement dateInput = _driver.FindElement(By.Id("datePickerMonthYearInput"));
             dateInput.Click();
@@ -37,7 +35,8 @@ namespace SeleniumTestProject.Tests
             IWebElement date = _driver.FindElement(By.XPath("//div[@class='react-datepicker__month']//div[text()='15']"));
             date.Click();
 
-            // Verify that the selected date is displayed in the input field
+            //Assert
+            // Verifyies that the selected date "03/15/2023" is displayed correctly
             string selectedDate = dateInput.GetAttribute("value");
             Assert.Equal("03/15/2023", selectedDate);
         }
@@ -45,32 +44,33 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void SelectPreviousMonthDate()
         {
-            // Navigate to the demo page
+            //Arrange           
             _driver.Navigate().GoToUrl("https://demoqa.com/date-picker");
 
-            // Find the date picker element and click it
+            //Act           
             var datePicker = _driver.FindElement(By.Id("datePickerMonthYearInput"));
             datePicker.Click();
 
-            // Find and click the "Previous" button to switch to the previous month
+            // Find and click the "Previous" button to switch to that month
             var previousButton = _driver.FindElement(By.CssSelector(".react-datepicker__navigation--previous"));
             previousButton.Click();
 
-            // Find and click the 10th day of the month
+            // Find and click the 10th day of the chosen previous month
             var day10 = _driver.FindElement(By.XPath("//div[@class='react-datepicker__day react-datepicker__day--010']"));
             day10.Click();
 
-            // Verify that the selected date is displayed in the input field
+            //Assert
+            // Verifies that the selected date "02/10/2023" is displayed correctly
             Assert.Equal("02/10/2023", datePicker.GetAttribute("value"));
         }
 
         [Fact]
         public void SelectFutureDate()
         {
-            // Navigate to the demo page
+            //Arrange           
             _driver.Navigate().GoToUrl("https://demoqa.com/date-picker");
 
-            // Find the date picker element and click it
+            //Act
             var datePicker = _driver.FindElement(By.Id("datePickerMonthYearInput"));
             datePicker.Click();
 
@@ -82,8 +82,15 @@ namespace SeleniumTestProject.Tests
             var day25 = _driver.FindElement(By.XPath("//div[@class='react-datepicker__day react-datepicker__day--025']"));
             day25.Click();
 
-            // Verify that the selected date is displayed in the input field
+            //Assert
+            // Verifies that "04/25/2023" is displayed correctly
             Assert.Equal("04/25/2023", datePicker.GetAttribute("value"));
+        }
+
+        public void Dispose()
+        {
+            _driver.Dispose();
+            _driver.Quit();
         }
     }
 }

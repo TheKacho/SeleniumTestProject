@@ -21,14 +21,17 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void AddElementTest()
         {
-            // Navigate to the webpage
+            //Arrange
+            // Navigates to the webpage
             _driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/add_remove_elements/");
 
-            // Click the "Add Element" button
+            //Act
+            // Clicks the "Add Element" button
             var addButton = _driver.FindElement(By.XPath("//button[contains(text(),'Add Element')]"));
             addButton.Click();
 
-            // Verify that a new element has been added
+            //Assert
+            // This verifies that a new element has been added
             var addedElement = _driver.FindElement(By.XPath("//div[@id='elements']/*[last()]"));
             Assert.True(addedElement.Displayed);
         }
@@ -36,9 +39,11 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void AddMultipleElementsTest()
         {
-            // Navigate to the webpage
+            //Act
+            // Navigates to the webpage
             _driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/add_remove_elements/");
 
+            //Arrange
             // Click the "Add Element" button three times
             for (int i = 0; i < 3; i++)
             {
@@ -46,7 +51,8 @@ namespace SeleniumTestProject.Tests
                 addButton.Click();
             }
 
-            // Verify that three new elements have been added
+            //Assert
+            // This verifies that that three new elements have been added
             var addedElements = _driver.FindElements(By.XPath("//div[@id='elements']/*"));
             Assert.Equal(3, addedElements.Count);
         }

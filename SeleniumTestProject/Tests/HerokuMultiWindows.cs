@@ -21,12 +21,15 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void TestMultipleWindows()
         {
+            //Arrange
             // Navigate to the Multiple Windows page
             driver.Navigate().GoToUrl(url + "windows");
 
+            //Act
             // Click the link to open a new window
             driver.FindElement(By.LinkText("Click Here")).Click();
 
+            
             // Switch to the new window
             string currentWindowHandle = driver.CurrentWindowHandle;
             foreach (string windowHandle in driver.WindowHandles)
@@ -38,6 +41,7 @@ namespace SeleniumTestProject.Tests
                 }
             }
 
+            //Assert
             // Verify the text on the page in the new window
             string pageText = driver.FindElement(By.TagName("h3")).Text;
             Assert.Equal("New Window", pageText);

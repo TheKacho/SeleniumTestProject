@@ -32,7 +32,7 @@ namespace SeleniumTestProject.Tests
             dropdown.SelectByIndex(1);
 
             //assert
-            // Verify that the selected option matches the expected value
+            // Verifies that the selected option matches the expected value, "Option 1"
             string selectedOption = dropdown.SelectedOption.Text;
             Assert.Equal("Option 1", selectedOption);
         }

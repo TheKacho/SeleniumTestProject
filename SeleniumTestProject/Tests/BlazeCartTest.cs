@@ -18,7 +18,7 @@ namespace SeleniumTestProject.Tests
 
         public BlazeCartTest()
         {
-            // Sets up the driver and wait objects
+            
             driver = new ChromeDriver();
             wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             blazeObjects = new DemoBlazePageObjects(driver);
@@ -30,14 +30,18 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void CanAddProductToCart()
         {
+            //Arrange
             // Clicks the "Laptops" link on the home page
             blazeObjects.BlazeMain.ClickLaptopsLink();
 
+            //Act
             // It will then click the "Dell i7 8gb" product on the laptops page
             blazeObjects.LaptopsPage.ClickProductLink("Dell i7 8gb");
 
             // Click the "Add to cart" button on the product page
             blazeObjects.ProductPage.ClickAddToCartButton();
+
+            //Assert
 
             // Wait for the alert to appear and verifies that
             // the "Product added" message appears containing the correct text

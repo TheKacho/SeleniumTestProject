@@ -23,12 +23,13 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void HoverOverElement_ShouldDisplayTooltip()
         {
+            //Arrange
             // Wait for the page to load
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
             //var elementToHover = wait.Until(driver => driver.FindElement(By.XPath("//input[@id='toolTipButton']")));
             var elementToHover = wait.Until(driver => driver.FindElement(By.Id("toolTipButton")));
 
-
+            //Act
             // Create an instance of the Actions class and move the mouse to the element
             Actions action = new Actions(driver);
             action.MoveToElement(elementToHover).Perform();
@@ -36,6 +37,7 @@ namespace SeleniumTestProject.Tests
             // Wait for the tooltip to be visible
             var tooltip = wait.Until(driver => driver.FindElement(By.Id("toolTipButton")));
 
+            //Assert
             // Verify that the tooltip is displayed
             Assert.True(tooltip.Displayed);
         }

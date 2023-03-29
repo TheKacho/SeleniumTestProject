@@ -20,17 +20,20 @@ namespace SeleniumTestProject.Tests
         [Fact]
         public void InvalidLoginTest()
         {
-            // Navigate to the login page
+            //Assert
+            // Navigates to the login page
             driver.Navigate().GoToUrl("http://the-internet.herokuapp.com/login");
 
+            //Act
             // Enter an invalid username and password
             driver.FindElement(By.Id("username")).SendKeys("invalid");
             driver.FindElement(By.Id("password")).SendKeys("invalid");
 
-            // Submit the form
+            // Submits the form
             driver.FindElement(By.CssSelector("button[type='submit']")).Click();
 
-            // Verify that the login failed
+            //Assert
+            // Verifies that the login has failed
             Assert.Contains("Your username is invalid!", driver.PageSource);
         }
 
