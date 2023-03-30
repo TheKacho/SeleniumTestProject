@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -91,6 +92,22 @@ namespace SeleniumTestProject.PageObjectModels
         public void ContinueToPayment()
         {
             driver.FindElement(continuePaymentButton).Click();
+        }
+    }
+
+    public class ConfirmationPage
+    {
+        private IWebDriver driver;
+        private By confirmationMessage = By.CssSelector(".page-title");
+
+        public ConfirmationPage(IWebDriver driver)
+        {
+            this.driver = driver;
+        }
+
+        public bool IsConfirmationMessageDisplayed()
+        {
+            return driver.FindElement(confirmationMessage).Text.Contains("Thank you for your purchase!");
         }
     }
 }
