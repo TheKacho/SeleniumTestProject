@@ -45,13 +45,13 @@ namespace SeleniumTestProject.PageObjectModels
         
     }
 
-    public class ShopCartPage
+    public class ShoppingCartPage
     {
         private IWebDriver driver;
         private By quantityField = By.CssSelector("#shopping-cart-table tbody tr:nth-child(1) td:nth-child(4) input");
         private By updateQuantityBtn = By.CssSelector("#shopping-cart-table tbody tr:nth-child(1) td:nth-child(4) button");
 
-        public ShopCartPage(IWebDriver driver)
+        public ShoppingCartPage(IWebDriver driver)
         {
             this.driver = driver;
         }
@@ -63,6 +63,34 @@ namespace SeleniumTestProject.PageObjectModels
             driver.FindElement(updateQuantityBtn).Click();
         }
 
+        
+    }
 
+    public class CheckoutPage
+    {
+        private IWebDriver driver;
+        private By continueShippingButton = By.CssSelector("#co-shipping-method-form .action.continue");
+        private By paymentMethodCheckmo = By.CssSelector("#co-payment-form input[value='checkmo']");
+        private By continuePaymentButton = By.CssSelector("#co-payment-form .action.continue");
+
+        public CheckoutPage(IWebDriver driver)
+        {
+            this.driver= driver;
+        }
+
+        public void ContinueToShipping()
+        {
+            driver.FindElement(continueShippingButton).Click();
+        }
+
+        public void SelectPaymentMethod()
+        {
+            driver.FindElement(paymentMethodCheckmo).Click();
+        }
+
+        public void ContinueToPayment()
+        {
+            driver.FindElement(continuePaymentButton).Click();
+        }
     }
 }
