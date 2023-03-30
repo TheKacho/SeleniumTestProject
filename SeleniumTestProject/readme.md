@@ -6,8 +6,6 @@
 - If these are not included in the solution folder, please install them from the Nuget Package Manager.
 
 - All of the tests are within the "Tests" folder, as the Page Object Models are within the "PageObjectModels" folder.
-- In order to effectively run these tests, they must be run one test at a time to see the actual results.
-
 
 ## Final Project Objectives 
 Create a suite of automated UI tests for publicly accessible web applications. You may use any online web application you choose, and you are not required to write all of your tests against the same application. You may write your tests in the same project as your API tests from the midterm, or you may create a new one. You may use any Nuget packages, test frameworks, or assertion libraries you choose, but your solution must be in C#. Create at least 15 automated UI tests. Your tests should each be unique and test a different use case of the web application. Your tests should also cover all of the following criteria:
