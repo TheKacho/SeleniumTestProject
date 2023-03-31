@@ -26,7 +26,7 @@ namespace SeleniumTestProject.Tests
             //Arrange
             // Wait for the page to load
             var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
-            //var elementToHover = wait.Until(driver => driver.FindElement(By.XPath("//input[@id='toolTipButton']")));
+           
             var elementToHover = wait.Until(driver => driver.FindElement(By.Id("toolTipButton")));
 
             //Act

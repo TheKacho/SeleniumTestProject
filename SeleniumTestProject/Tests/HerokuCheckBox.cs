@@ -21,10 +21,10 @@ namespace SeleniumTestProject.Tests
         public void TestCheckboxes()
         {
             //Arrange
-            // Navigates to the Checkboxes page
+            // Navigates to the Checkbox page
             driver.Navigate().GoToUrl(url + "checkboxes");
 
-            //Act & Assert 1
+            //Act & Assert (Assert Part 1)
             // Verifies the initial checkbox state
             IWebElement checkbox1 = driver.FindElement(By.CssSelector("input[type='checkbox']:first-of-type"));
             IWebElement checkbox2 = driver.FindElement(By.CssSelector("input[type='checkbox']:nth-of-type(2)"));
@@ -35,7 +35,7 @@ namespace SeleniumTestProject.Tests
             checkbox1.Click();
             checkbox2.Click();
 
-            //Assert 2
+            //Assert (Assert Part 2)
             // Verifies the updated checkbox state
             Assert.True(checkbox1.Selected);
             Assert.False(checkbox2.Selected);

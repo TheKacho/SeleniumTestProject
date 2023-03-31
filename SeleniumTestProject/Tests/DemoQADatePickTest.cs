@@ -36,7 +36,7 @@ namespace SeleniumTestProject.Tests
             date.Click();
 
             //Assert
-            // Verifyies that the selected date "03/15/2023" is displayed correctly
+            // Verifies that the selected date "03/15/2023" is displayed correctly
             string selectedDate = dateInput.GetAttribute("value");
             Assert.Equal("03/15/2023", selectedDate);
         }
